@@ -39,5 +39,13 @@ var Model = {
     },
     getGroups: function() {
         return this.callApi('groups.get', { extended: 1});
+    },
+    getAlbums: function() {
+        return this.callApi('photos.getAlbums', {v:5.53});
+    },
+    getPhotos: function() {
+       return this.callApi('photos.get', {  album_id: 'profile',   extended: 1} );
+       //return this.callApi('photos.get', {album_id:album_id, extended:'1'});
+       // return this.callApi('photos.getAll', { v: '5.53', extended: 1, fields: 'photo_id' });
     }
 };

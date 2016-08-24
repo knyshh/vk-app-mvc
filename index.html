@@ -18,6 +18,10 @@
             border-radius: 50%;
             overflow: hidden;
         }
+        .col-photo {
+            max-width: 100%;
+            display: inline-block;
+        }
         .col-txt {
             display: inline-block;
             padding-top: 17px;
@@ -35,6 +39,7 @@
         <button type="button" class="btn btn-default" onclick="Router.handle('friends')">Друзья</button>
         <button type="button" class="btn btn-default" onclick="Router.handle('news')">Новости</button>
         <button type="button" class="btn btn-default" onclick="Router.handle('groups')">Группы</button>
+        <button type="button" class="btn btn-default" onclick="Router.handle('photos')">Фото</button>
     </div>
     <hr>
     <div id="results"></div>
@@ -98,6 +103,25 @@
                 <img src="{{ photo }}" class="img-circle">
             </div>
             <div class="col-txt">{{name}}</div>
+        </div>
+        <hr>
+        {{/each}}
+    </div>
+</script>
+
+<script type="text/x-handlebars-template" id="photosTemplate">
+    <div class="photos">
+        {{#each list}}
+        <div class="row">
+            <div class="col-photo">
+                <img src="{{ src }}" class="">
+
+            </div>
+            <div class="col-txt">
+              <span>likes <strong>{{ likes.count }}</strong> </span>
+                <span>comments <strong>{{ comments.count }}</strong></span>
+                <span> reposts <strong>{{ reposts.count }}</strong></span>
+            </div>
         </div>
         <hr>
         {{/each}}
